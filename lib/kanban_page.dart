@@ -62,54 +62,60 @@ class _KanbanPage1State extends State<KanbanPage1> {
         ),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(70),
-          child: Container(
-            child: Row(children: [
-              for (int i = 0; i < stages.length; i++)
-                Expanded(
-                  child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        _currentIndex = i;
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Expanded(
+                child: Row(children: [
+                  for (int i = 0; i < stages.length; i++)
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          _currentIndex = i;
 
-                        _pageController.animateToPage(
-                          _currentIndex,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                      });
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 100, // Adjust as needed
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: _currentIndex == i
-                            ? Colors.deepPurple[100]
-                            : Colors.white,
-                      ),
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                  text: stageTitles2[i],
-                                  style: Theme.of(context).textTheme.bodyText2),
-                              TextSpan(
-                                text:
-                                    '\n', // Add a newline character to separate the texts vertically
-                              ),
-                              TextSpan(
-                                  text: stageTitles[i],
-                                  style: Theme.of(context).textTheme.bodyText2),
-                            ],
+                          _pageController.animateToPage(
+                            _currentIndex,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        });
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100, // Adjust as needed
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: _currentIndex == i
+                              ? Colors.deepPurple[100]
+                              : Colors.white,
+                        ),
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                    text: stageTitles2[i],
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2),
+                                TextSpan(
+                                  text:
+                                      '\n', // Add a newline character to separate the texts vertically
+                                ),
+                                TextSpan(
+                                    text: stageTitles[i],
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-            ]),
+                ]),
+              ),
+            ),
           ),
         ),
       ),
