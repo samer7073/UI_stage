@@ -3,15 +3,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/chat_page.dart';
 
-import 'package:flutter_application_stage_project/components/my_drawer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_application_stage_project/Profile.dart';
+import 'package:flutter_application_stage_project/chat_page.dart';
+import 'package:flutter_application_stage_project/components/my_drawer.dart';
+import 'package:flutter_application_stage_project/kanban_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_application_stage_project/settings.dart';
 import 'package:flutter_application_stage_project/ticket_page.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,6 +77,14 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
+  void goToKanaban() {
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return KanbanPage1();
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     themeProvider = Provider.of<ThemeProvider>(context, listen: false);
@@ -132,6 +143,9 @@ class _HomePageState extends State<HomePage> {
               selectedIndex = 0;
             } else if (index == 1) {
               goToChatPage();
+              selectedIndex = 0;
+            } else if (index == 3) {
+              goToKanaban();
               selectedIndex = 0;
             }
           });

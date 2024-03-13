@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 class MyThemes {
   static final lightTheme = ThemeData(
+    cardTheme: CardTheme(
+      color: Colors.white,
+    ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.purple,
         shape: CircleBorder(
@@ -53,6 +56,9 @@ class MyThemes {
   );
 
   static final darkTheme = ThemeData(
+    cardTheme: CardTheme(
+      color: Colors.black,
+    ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.purple,
         shape: CircleBorder(
