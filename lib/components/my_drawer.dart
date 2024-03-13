@@ -2,12 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/components/my_list_tile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyDrawer extends StatelessWidget {
   void Function()? onProfileTap;
   void Function()? onLogoutTap;
   void Function()? onSettingsTap;
-  MyDrawer({super.key, required this.onProfileTap, required this.onLogoutTap,required this.onSettingsTap});
+  MyDrawer(
+      {super.key,
+      required this.onProfileTap,
+      required this.onLogoutTap,
+      required this.onSettingsTap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +29,22 @@ class MyDrawer extends StatelessWidget {
           )),
           MyListTile(
             icon: Icons.home,
-            text: "H O M E",
+            text: AppLocalizations.of(context).drawerHome,
             onTap: () => Navigator.pop(context),
           ),
           MyListTile(
             icon: Icons.person,
-            text: "P R O F I L E",
+            text: AppLocalizations.of(context).drawerProfile,
             onTap: onProfileTap,
           ),
           MyListTile(
             icon: Icons.settings,
-            text: "S E T T I N G S",
+            text: AppLocalizations.of(context).drawerSettings,
             onTap: onSettingsTap,
           ),
           MyListTile(
             icon: Icons.logout,
-            text: "L O G O U T",
+            text: AppLocalizations.of(context).drawerLogout,
             onTap: onLogoutTap,
           ),
         ],

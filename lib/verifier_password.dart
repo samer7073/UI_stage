@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_application_stage_project/home_page.dart';
 import 'package:flutter_application_stage_project/login_page.dart';
+import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:provider/provider.dart';
 
 class VerfierPassword extends StatefulWidget {
   const VerfierPassword({super.key});
@@ -15,6 +17,13 @@ class VerfierPassword extends StatefulWidget {
 }
 
 class _VerfierPasswordState extends State<VerfierPassword> {
+  late ThemeProvider themeProvider;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+  }
+
   void confirmUser() {}
   @override
   Widget build(BuildContext context) {
@@ -27,7 +36,7 @@ class _VerfierPasswordState extends State<VerfierPassword> {
               height: 50,
             ),
             Text(
-              "verification code",
+              "le code de vérification",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -67,13 +76,14 @@ class _VerfierPasswordState extends State<VerfierPassword> {
                       ));
                     },
                     style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 50),
                       shape: const StadiumBorder(),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 16),
                       backgroundColor: Color.fromARGB(255, 246, 228, 250),
                     ),
-                    child: const Text(
-                      "Confirmer",
+                    child: Text(
+                      "Annuler",
                       style: TextStyle(
                           fontSize: 14,
                           color: Color.fromARGB(255, 145, 33, 250),
@@ -95,12 +105,13 @@ class _VerfierPasswordState extends State<VerfierPassword> {
                     },
                     style: ElevatedButton.styleFrom(
                       shape: const StadiumBorder(),
+                      minimumSize: Size(150, 50),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 16),
                       backgroundColor: Color.fromARGB(255, 246, 228, 250),
                     ),
                     child: const Text(
-                      "Annuler",
+                      "Confirmer",
                       style: TextStyle(
                           fontSize: 14,
                           color: Color.fromARGB(255, 145, 33, 250),

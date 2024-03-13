@@ -1,11 +1,16 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:developer';
-
+import 'dart:ffi';
+import 'dart:ui';
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/providers/langue_provider.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'main.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -14,22 +19,52 @@ class Settings extends StatefulWidget {
   State<Settings> createState() => _SettingsState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsState extends State<Settings> with WidgetsBindingObserver {
   late ThemeProvider themeProvider;
+  late LangueProvider langueProvider;
+  late Locale value;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    log("test initstate Activate Settings");
     themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    langueProvider = Provider.of<LangueProvider>(context, listen: false);
+    langueProvider.addListener(_onLocaleChange);
+    updateValueSelected(langueProvider.locale);
   }
 
   @override
+  void dispose() {
+    langueProvider.removeListener(_onLocaleChange);
+    super.dispose();
+  }
+
+  void _onLocaleChange() {
+    setState(() {
+      updateValueSelected(langueProvider.locale);
+    });
+  }
+
+  void updateValueSelected(Locale locale) {
+    setState(() {
+      valueSelected = locale.languageCode == 'fr'
+          ? "Francais"
+          : locale.languageCode == "en"
+              ? "English"
+              : "العربية";
+    });
+  }
+
+  String valueSelected = '';
+
+  @override
   Widget build(BuildContext context) {
+    log("la langage de systeme est  $valueSelected");
+    log("la valuer dans langueProvider ${langueProvider.locale}");
     return Scaffold(
-      backgroundColor:
-          themeProvider.isDarkMode == true ? Colors.black : Colors.grey[200],
       appBar: AppBar(
-        title: Text("Settings"),
+        title: Text(AppLocalizations.of(context).settings),
         centerTitle: true,
         actions: [
           IconButton(
@@ -46,53 +81,53 @@ class _SettingsState extends State<Settings> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: CircleAvatar(
-                radius: 70.0,
-                backgroundImage: NetworkImage(
-                    'https://media.istockphoto.com/id/1460122390/photo/portrait-beauty-and-facial-with-a-black-woman-in-studio-to-promote-natural-skincare-or.jpg?s=1024x1024&w=is&k=20&c=OM9PF35xRZavW_xaS4Ru-3DVdJ_9HIy-VQHZMOLVBrk='),
-                backgroundColor: Colors.transparent,
-              ),
-            ),
             Text(
-              "Theme",
+              AppLocalizations.of(context).theme,
               style: TextStyle(color: Colors.grey[600]),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Container(
               height: 50,
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: customSwitch(
-                  "Dark mode",
-                  themeProvider.isDarkMode,
-                  (value) {
-                    setState(() {
-                      log("here the value is $value");
-
-                      themeProvider.toggleTheme(value);
-                    });
-                  },
-                ),
+              child: customSwitch(
+                AppLocalizations.of(context).darkMode,
+                themeProvider.isDarkMode,
+                (value) {
+                  themeProvider.toggleTheme();
+                },
+                context,
               ),
             ),
-            SizedBox(
-              height: 100,
+            SizedBox(height: 10),
+            Text(
+              AppLocalizations.of(context).language,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
-            /*
-            ElevatedButton(
-              onPressed: () {
-                //themeProvider.toggleTheme();
-              }, // Placeholder for other functionality
-              child: Text("data"),
+            SizedBox(height: 15),
+            DropdownMenu<String>(
+              textStyle: Theme.of(context).textTheme.bodyText1,
+              width: 370,
+              initialSelection: valueSelected,
+              dropdownMenuEntries: [
+                DropdownMenuEntry(value: "English", label: "English"),
+                DropdownMenuEntry(value: "Francais", label: "Francais"),
+                DropdownMenuEntry(value: "العربية", label: "العربية"),
+              ],
+              onSelected: (String? newValue) {
+                setState(() {
+                  valueSelected = newValue!;
+                  if (newValue == "English") {
+                    langueProvider.setLocale(Locale('en'));
+                    log("Selected language: English");
+                  } else if (newValue == "Francais") {
+                    langueProvider.setLocale(Locale('fr'));
+                    log("Selected language: Francais");
+                  } else if (newValue == "العربية") {
+                    langueProvider.setLocale(Locale('ar'));
+                    log("Selected language: Arabic");
+                  }
+                });
+              },
             ),
-            */
           ],
         ),
       ),
@@ -100,26 +135,27 @@ class _SettingsState extends State<Settings> {
   }
 }
 
-Widget customSwitch(String text, bool val, onChangeMethod) {
+Widget customSwitch(
+  String text,
+  bool val,
+  onChangeMethod,
+  BuildContext context,
+) {
+  log("la valeur de button switch ==== $val");
   return Padding(
     padding: EdgeInsets.only(top: 0, left: 0, right: 0),
     child: Row(
       children: [
         Text(
           text,
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.w400,
-            color: Colors.black,
-          ),
+          style: Theme.of(context).textTheme.bodyText1,
         ),
         Spacer(),
         CupertinoSwitch(
-          trackColor: Colors.grey,
           activeColor: Colors.purple,
           value: val,
           onChanged: onChangeMethod,
-        )
+        ),
       ],
     ),
   );

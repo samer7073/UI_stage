@@ -1,0 +1,124 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "homePage": "Home", 
+  "@homePage": {
+    "description": "Home"
+  },
+  "calls": "Calls",
+  "@calls": {
+    "description": "Calls"
+  },
+  "chats": "Chats",
+  "@chats": {
+    "description": "Chats"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark Mode"
+  },
+  "verificationCode": "Verification Code",
+  "@verificationCode": {
+    "description": "Verification Code"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot Password?"
+  },
+  "skip": "Skip",
+  "@skip": {
+    "description": "Skip"
+  },
+  "done": "Done",
+  "@done": {
+    "description": "Done"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Next"
+  },
+  "discussions": "Discussions",
+  "@discussions": {
+    "description": "Discussions"
+  },
+  "headerLogin": "Welcome Back",
+  "@headerLogin": {
+    "description": "Welcome Back"
+  },
+  "textLogin": "Enter your credential to login",
+  "@textLogin": {
+    "description": "Enter your credential to login"
+  },
+  "theme": "Theme",
+  "@Theme": {
+    "description": "Theme"
+  },
+  "darkMode": "Dark Mode ",
+  "@darkMode": {
+    "description": "Dark Mode "
+  },
+  "english": "English",
+  "@english": {
+    "description": "english"
+  },
+  "french": "French",
+  "@french": {
+    "description": "french"
+  },
+  "arabic": "Arabic",
+  "@arabic": {
+    "description": "arabic"
+  },
+  "drawerHome": "H O M E",
+  "@drawerHome": {
+    "description": "H O M E"
+  },
+  "drawerProfile": "P R O F I L E",
+  "@drawerHome": {
+    "description": "P R O F I L E"
+  },
+  "drawerSettings": "S E T T I N G S",
+  "@drawerHome": {
+    "description": "S E T T I N G S"
+  },
+  "drawerLogout": "L O G O U T",
+  "@drawerHome": {
+    "description": "L O G O U T"
+  },
+  "language": "Language",
+  "@drawerHome": {
+    "description": "language"
+  },
+  "ticket": "Ticket",
+  "@ticket": {
+    "description": "ticket"
+  }
+  
+  
+}

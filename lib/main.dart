@@ -1,68 +1,76 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/onboarding_screen.dart';
+import 'package:flutter_application_stage_project/providers/langue_provider.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
+import 'package:flutter_application_stage_project/theme.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:language_code/language_code.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LangueProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key})
-      : super(key: key); // Correction de la syntaxe du constructeur
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+  static void setLocale(BuildContext context, Locale newLocale) {
+    final _MyAppState state = context.findAncestorStateOfType<_MyAppState>()!;
+    state.setLocale(newLocale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = LanguageCode.locale;
+
+  void setLocale(Locale newLocale) {
+    setState(() {
+      _locale = newLocale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, child) {
-        final provider = Provider.of<ThemeProvider>(context);
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          //themeMode: provider.theme,
-          theme: provider.theme,
-          // Permet d'activer le
+    final provider = Provider.of<ThemeProvider>(context);
+    final providerLangue = Provider.of<LangueProvider>(context);
+    log('la  valeur de isdark dans build Main  ==== ${provider.isDarkMode}');
+    log("Le thème initial est  et le mode sombre est ${provider.isDarkMode}");
 
-          home: OnBoardingScreen(),
-        );
-      },
-      /*
-      child: MaterialApp(
-        theme: ThemeData.light().copyWith(
-          // Utilisation de ThemeData.light().copyWith() pour créer un thème light à partir du thème par défaut
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.white,
-            titleTextStyle: TextStyle(color: Colors.black, fontSize: 22),
-            iconTheme: IconThemeData(color: Colors.purple),
-          ),
-          useMaterial3: true,
-          drawerTheme: const DrawerThemeData(
-            shadowColor: Colors.deepPurple,
-            backgroundColor: Colors.purple,
-          ),
-        ),
-        darkTheme: ThemeData.dark().copyWith(
-          appBarTheme:
-              AppBarTheme(iconTheme: IconThemeData(color: Colors.purple)),
-          // Utilisation de ThemeData.dark().copyWith() pour créer un thème sombre à partir du thème par défaut
-          scaffoldBackgroundColor: Colors.black,
-          textSelectionTheme: const TextSelectionThemeData(
-            selectionColor: Colors.white,
-          ),
-          drawerTheme: const DrawerThemeData(
-            backgroundColor: Colors.black,
-            shadowColor: Colors.black,
-          ),
-          shadowColor: Colors.black,
-        ),
-        themeMode: ThemeMode
-            .dark, // Utilisation de ThemeMode.system pour utiliser le thème du système par défaut (light ou dark)
-        title: 'Flutter Demo',
+    return MaterialApp(
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate
+        ],
+        locale: providerLangue.locale,
+        supportedLocales: [
+          Locale('en'),
+          Locale('fr'),
+          Locale('ar'),
+        ],
         debugShowCheckedModeBanner: false,
-        home: const OnBoardingScreen(),
-      ),
-      */
-    );
+        theme: provider.isDarkMode ? MyThemes.darkTheme : MyThemes.lightTheme,
+        themeMode: provider.themeMode,
+        //themeMode: provider.isDarkMode == true ? ThemeMode.light  : ThemeMode.dark ,
+        home: ChangeNotifierProvider.value(
+          value: provider,
+          child: OnBoardingScreen(),
+        ));
   }
 }

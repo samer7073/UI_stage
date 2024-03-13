@@ -1,9 +1,14 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_application_stage_project/home_page.dart';
+import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_application_stage_project/verifier_password.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +21,14 @@ class _LoginPageState extends State<LoginPage> {
   final urlController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  late ThemeProvider themeProvider;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+  }
+
   void signUser() {
     Navigator.pushReplacement(
       context,
@@ -25,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    log('build ${themeProvider.isDarkMode}');
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(24),
@@ -42,13 +56,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _header(context) {
-    return const Column(
+    return Column(
       children: [
         Text(
-          "Welcome Back",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          AppLocalizations.of(context).headerLogin,
+          style: Theme.of(context).textTheme.headline1,
         ),
-        Text("Enter your credential to login"),
+        Text(AppLocalizations.of(context).textLogin),
       ],
     );
   }
@@ -59,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         TextField(
           decoration: InputDecoration(
-              hintText: "Email",
+              hintText: AppLocalizations.of(context).email,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none),
@@ -72,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
         const SizedBox(height: 10),
         TextField(
           decoration: InputDecoration(
-            hintText: "Password",
+            hintText: AppLocalizations.of(context).password,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
@@ -98,12 +112,12 @@ class _LoginPageState extends State<LoginPage> {
               ));
             },
             style: ElevatedButton.styleFrom(
-              shape: const StadiumBorder(),
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+              shape: StadiumBorder(),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 16),
               backgroundColor: Color.fromARGB(255, 246, 228, 250),
             ),
-            child: const Text(
-              "Login",
+            child: Text(
+              AppLocalizations.of(context).login,
               style: TextStyle(
                   fontSize: 14,
                   color: Color.fromARGB(255, 145, 33, 250),
@@ -124,12 +138,10 @@ class _LoginPageState extends State<LoginPage> {
           },
         ));
       },
-      child: const Text(
-        "Forgot password?",
+      child: Text(
+        AppLocalizations.of(context).forgotPassword,
         style: TextStyle(color: Colors.purple),
       ),
     );
   }
-
-
 }
