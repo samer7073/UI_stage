@@ -1,12 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_application_stage_project/stages/stage1.dart';
 import 'package:flutter_application_stage_project/stages/stage2.dart';
 import 'package:flutter_application_stage_project/stages/stage3.dart';
 import 'package:flutter_application_stage_project/stages/stage4.dart';
 import 'package:flutter_application_stage_project/stages/stage5.dart';
 import 'package:flutter_application_stage_project/stages/stage6.dart';
+import 'package:provider/provider.dart';
 
 class KanbanPage1 extends StatefulWidget {
   @override
@@ -14,6 +16,16 @@ class KanbanPage1 extends StatefulWidget {
 }
 
 class _KanbanPage1State extends State<KanbanPage1> {
+  late ThemeProvider themeProvider;
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    _pageController = PageController(initialPage: _currentIndex);
+  }
+
   late PageController _pageController;
   int _currentIndex = 0;
   int selectedIndex = 0;
@@ -46,12 +58,6 @@ class _KanbanPage1State extends State<KanbanPage1> {
   ];
 
   @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: _currentIndex);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -66,55 +72,54 @@ class _KanbanPage1State extends State<KanbanPage1> {
             width: MediaQuery.of(context).size.width,
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Expanded(
-                child: Row(children: [
-                  for (int i = 0; i < stages.length; i++)
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          _currentIndex = i;
+              child: Row(children: [
+                for (int i = 0; i < stages.length; i++)
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _currentIndex = i;
 
-                          _pageController.animateToPage(
-                            _currentIndex,
-                            duration: Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        });
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 100, // Adjust as needed
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        _pageController.animateToPage(
+                          _currentIndex,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      });
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100, // Adjust as needed
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: _currentIndex == i
-                              ? Colors.deepPurple[100]
-                              : Colors.white,
-                        ),
-                        child: Center(
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                    text: stageTitles2[i],
-                                    style:
-                                        Theme.of(context).textTheme.bodyText2),
-                                TextSpan(
-                                  text:
-                                      '\n', // Add a newline character to separate the texts vertically
-                                ),
-                                TextSpan(
-                                    text: stageTitles[i],
-                                    style:
-                                        Theme.of(context).textTheme.bodyText2),
-                              ],
-                            ),
+                          color: themeProvider.isDarkMode == true
+                              ? _currentIndex == i
+                                  ? Colors.deepPurple[100]
+                                  : Colors.black
+                              : _currentIndex == i
+                                  ? Colors.deepPurple[100]
+                                  : Colors.white),
+                      child: Center(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: stageTitles2[i],
+                                  style: Theme.of(context).textTheme.bodyText1),
+                              TextSpan(
+                                text:
+                                    '\n', // Add a newline character to separate the texts vertically
+                              ),
+                              TextSpan(
+                                  text: stageTitles[i],
+                                  style: Theme.of(context).textTheme.bodyText2),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                ]),
-              ),
+                  ),
+              ]),
             ),
           ),
         ),

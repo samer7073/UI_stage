@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/userAvatar.dart';
 
@@ -51,6 +53,7 @@ Widget buildProjectRow(
             ),
             Text(
               title,
+              style: Theme.of(context).textTheme.headline2,
             ),
             const SizedBox(height: 8),
             Text(
@@ -114,14 +117,15 @@ Widget buildProjectRow(
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    // primary: Colors.deepPurple[50],
-                    primary: Colors.deepPurple[50],
-                    onPrimary: Colors.pink, // Updated color
+                    shape: StadiumBorder(),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                    backgroundColor: Color.fromARGB(255, 246, 228, 250),
                   ),
-                  child: Text(
-                    "Details",
-                    style: TextStyle(fontSize: 14),
-                  ),
+                  child: Text("Details",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 145, 33, 250),
+                          fontWeight: FontWeight.w900)),
                 ),
               ],
             ),

@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/add_task.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -72,7 +73,7 @@ class _HomePageState extends State<HomePage> {
   void goToChatPage() {
     Navigator.push(context, MaterialPageRoute(
       builder: (context) {
-        return ChatPage();
+        return AddTaskPage();
       },
     ));
   }
@@ -171,14 +172,14 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             //backgroundColor: Color.fromARGB(255, 246, 214, 252),
             icon: Icon(
-              Icons.phone_enabled_outlined,
+              Icons.calendar_today_outlined,
               //color: selectedIndex == 1 ? Colors.purple : Colors.black,
             ),
             activeIcon: Icon(
-              Icons.phone_enabled_rounded,
+              Icons.calendar_today_rounded,
               //color: Colors.purple,
             ),
-            label: AppLocalizations.of(context).calls,
+            label: "Acticity" /*AppLocalizations.of(context).calls*/,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Color.fromARGB(255, 246, 214, 252),
@@ -195,14 +196,14 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             //backgroundColor: Color.fromARGB(255, 246, 214, 252),
             icon: Icon(
-              Icons.settings,
+              Icons.handshake_outlined,
               // color: selectedIndex == 3 ? Colors.purple : Colors.black,
             ),
             activeIcon: Icon(
-              Icons.settings,
+              Icons.handshake_rounded,
               // color: Colors.purple,
             ),
-            label: AppLocalizations.of(context).settings,
+            label: "Deals" /*AppLocalizations.of(context).settings*/,
           ),
         ],
         // selectedLabelStyle: TextStyle(color: Colors.green),
