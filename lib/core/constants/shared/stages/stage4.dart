@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import '../buildProjectRow.dart';
 
-class Stage2Content extends StatelessWidget {
+
+class Stage4Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             children: [
               const SizedBox(
                 height: 20,

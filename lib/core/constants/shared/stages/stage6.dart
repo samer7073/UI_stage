@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../buildProjectRow.dart';
 
-class Stage1Content extends StatelessWidget {
+
+class Stage6Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,18 +17,11 @@ class Stage1Content extends StatelessWidget {
               ),
               buildProjectRow(
                 "Shop integration with Facebook Api",
-                "Use this guide to learn about concepts and common use cases for planning your commerce integration. ",
+                "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [
-                  "img1.jpeg",
-                  "img2.jpeg",
-                  "img3.jpeg",
-                  "img2.jpeg",
-                  "img1.jpeg",
                   "img1.jpeg",
                 ],
                 Colors.blue,
-                // Updated color
-                // Updated color
                 0.3,
                 "30%",
                 "28/02/2024",
@@ -84,7 +79,7 @@ class Stage1Content extends StatelessWidget {
                   "img1.jpeg",
                   "img2.jpeg",
                 ],
-                Colors.blue, // Updated color
+                Colors.deepPurple,
                 // Updated color
                 0.75,
                 "75%",

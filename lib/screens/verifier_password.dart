@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_application_stage_project/home_page.dart';
-import 'package:flutter_application_stage_project/login_page.dart';
+import 'package:flutter_application_stage_project/screens/home_page.dart';
+import 'package:flutter_application_stage_project/screens/login_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:provider/provider.dart';

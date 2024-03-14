@@ -4,9 +4,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_stage_project/home_page.dart';
+import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
-import 'package:flutter_application_stage_project/verifier_password.dart';
+import 'package:flutter_application_stage_project/screens/verifier_password.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

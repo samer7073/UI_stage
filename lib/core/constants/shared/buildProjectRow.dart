@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/userAvatar.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/userAvatar.dart';
 
 import 'package:percent_indicator/percent_indicator.dart';
 
-import 'TeamFolderPage.dart';
+import '../../../screens/TeamFolderPage.dart';
 
 Widget buildProjectRow(
   String title,

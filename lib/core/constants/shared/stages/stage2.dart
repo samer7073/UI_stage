@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import '../buildProjectRow.dart';
 
-class Stage6Content extends StatelessWidget {
+
+class Stage2Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             children: [
               const SizedBox(
                 height: 20,
@@ -20,6 +22,7 @@ class Stage6Content extends StatelessWidget {
                   "img1.jpeg",
                 ],
                 Colors.blue,
+                // Updated color
                 0.3,
                 "30%",
                 "28/02/2024",

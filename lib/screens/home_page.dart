@@ -3,18 +3,19 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/add_task.dart';
+import 'package:flutter_application_stage_project/screens/add_task.dart';
+import 'package:flutter_application_stage_project/screens/detail.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_application_stage_project/Profile.dart';
-import 'package:flutter_application_stage_project/chat_page.dart';
+import 'package:flutter_application_stage_project/screens/Profile.dart';
+import 'package:flutter_application_stage_project/screens/chat_page.dart';
 import 'package:flutter_application_stage_project/components/my_drawer.dart';
-import 'package:flutter_application_stage_project/kanban_page.dart';
+import 'package:flutter_application_stage_project/screens/kanban_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
-import 'package:flutter_application_stage_project/settings.dart';
-import 'package:flutter_application_stage_project/ticket_page.dart';
+import 'package:flutter_application_stage_project/screens/settings.dart';
+import 'package:flutter_application_stage_project/screens/ticket_page.dart';
 
 import 'login_page.dart';
 
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
   void goToChatPage() {
     Navigator.push(context, MaterialPageRoute(
       builder: (context) {
-        return AddTaskPage();
+        return DetailPage();
       },
     ));
   }

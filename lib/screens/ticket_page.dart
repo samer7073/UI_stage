@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/screens/TeamFolderPage.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -56,31 +57,40 @@ class _TicketState extends State<Ticket> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Tooltip(
-                        message: "Telephone",
-                        child: Icon(
-                          Icons.local_phone_outlined,
-                          color: Colors.purple,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return TeamFolderPage();
+                    },
+                  ));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Tooltip(
+                          message: "Telephone",
+                          child: Icon(
+                            Icons.local_phone_outlined,
+                            color: Colors.purple,
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "# 301",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
-                      )
-                    ],
-                  ),
-                  Text(
-                    "12:58 PM",
-                    style: Theme.of(context).textTheme.bodyText2,
-                  )
-                ],
+                        SizedBox(width: 5),
+                        Text(
+                          "# 301",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
+                        )
+                      ],
+                    ),
+                    Text(
+                      "12:58 PM",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    )
+                  ],
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -158,19 +168,28 @@ class _TicketState extends State<Ticket> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.chat_outlined,
-                        color: Colors.purple,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "# 302",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return TeamFolderPage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.chat_outlined,
+                          color: Colors.purple,
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          "# 302",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.black),
+                        )
+                      ],
+                    ),
                   ),
                   Text(
                     "12:58 PM",

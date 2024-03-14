@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);

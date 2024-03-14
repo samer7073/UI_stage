@@ -1,13 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage1.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage2.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage3.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage4.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage5.dart';
+import 'package:flutter_application_stage_project/core/constants/shared/stages/stage6.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
-import 'package:flutter_application_stage_project/stages/stage1.dart';
-import 'package:flutter_application_stage_project/stages/stage2.dart';
-import 'package:flutter_application_stage_project/stages/stage3.dart';
-import 'package:flutter_application_stage_project/stages/stage4.dart';
-import 'package:flutter_application_stage_project/stages/stage5.dart';
-import 'package:flutter_application_stage_project/stages/stage6.dart';
+
 import 'package:provider/provider.dart';
 
 class KanbanPage1 extends StatefulWidget {
@@ -75,6 +76,8 @@ class _KanbanPage1State extends State<KanbanPage1> {
               child: Row(children: [
                 for (int i = 0; i < stages.length; i++)
                   InkWell(
+                    splashColor: Colors.white,
+                    overlayColor: MaterialStatePropertyAll(Colors.white),
                     onTap: () {
                       setState(() {
                         _currentIndex = i;

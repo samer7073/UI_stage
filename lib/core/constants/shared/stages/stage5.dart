@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../buildProjectRow.dart';
 
-class Stage4Content extends StatelessWidget {
+
+class Stage5Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
