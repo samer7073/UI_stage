@@ -26,7 +26,9 @@ class MyThemes {
       bodyText1: TextStyle(
           fontSize: 16, color: Colors.black), // Your custom body text style
       bodyText2: TextStyle(fontSize: 14, color: Colors.grey),
-      subtitle1: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      subtitle1: TextStyle(
+        fontSize: 16,
+      ),
       subtitle2: TextStyle(fontSize: 14, color: Colors.grey),
       button: TextStyle(fontSize: 16, color: Colors.white),
       caption: TextStyle(fontSize: 12, color: Colors.grey),
@@ -78,7 +80,9 @@ class MyThemes {
       bodyText1: TextStyle(
           fontSize: 16, color: Colors.white), // Your custom body text style
       bodyText2: TextStyle(fontSize: 14, color: Colors.grey),
-      subtitle1: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      subtitle1: TextStyle(
+        fontSize: 16,
+      ),
       subtitle2: TextStyle(fontSize: 14, color: Colors.grey),
       button: TextStyle(fontSize: 16, color: Colors.white),
       caption: TextStyle(fontSize: 12, color: Colors.grey),

@@ -14,7 +14,7 @@ import 'package:flutter_application_stage_project/screens/chat_page.dart';
 import 'package:flutter_application_stage_project/components/my_drawer.dart';
 import 'package:flutter_application_stage_project/screens/kanban_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
-import 'package:flutter_application_stage_project/screens/settings.dart';
+import 'package:flutter_application_stage_project/screens/settings/settings.dart';
 import 'package:flutter_application_stage_project/screens/ticket_page.dart';
 
 import 'login_page.dart';
@@ -87,6 +87,14 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
+  void goTocha() {
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return ChatPage();
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     themeProvider = Provider.of<ThemeProvider>(context, listen: false);
@@ -94,6 +102,26 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: Row(
+          children: [
+            SizedBox(
+              width: 10,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return Settings();
+                  },
+                ));
+              },
+              child: CircleAvatar(
+                backgroundImage: Image.asset('assets/face4.jpg').image,
+                radius: 20,
+              ),
+            ),
+          ],
+        ),
         centerTitle: true,
         title: Text(
           'Sphere',
@@ -110,11 +138,14 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      /*
       drawer: MyDrawer(
         onLogoutTap: signOut,
         onProfileTap: goToProfilePage,
         onSettingsTap: goToSettingsPage,
+        onChatTap: goTocha,
       ),
+      */
       body: Container(
         child: Center(
           child: Text('Espace réservé pour le contenu principal'),

@@ -8,11 +8,13 @@ class MyDrawer extends StatelessWidget {
   void Function()? onProfileTap;
   void Function()? onLogoutTap;
   void Function()? onSettingsTap;
+  void Function()? onChatTap;
   MyDrawer(
       {super.key,
       required this.onProfileTap,
       required this.onLogoutTap,
-      required this.onSettingsTap});
+      required this.onSettingsTap,
+      required this.onChatTap});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,11 @@ class MyDrawer extends StatelessWidget {
             color: Colors.white,
             size: 64,
           )),
+          MyListTile(
+            icon: Icons.chat_rounded,
+            text: "Chat",
+            onTap: onChatTap,
+          ),
           MyListTile(
             icon: Icons.home,
             text: AppLocalizations.of(context).drawerHome,

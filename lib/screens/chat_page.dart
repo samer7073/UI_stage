@@ -73,13 +73,13 @@ class _ChatPageState extends State<ChatPage> {
                   text: 'bubble normal without tail',
                   isSender: false,
                   color: Color(0xFFE8E8EE),
-                  tail: false,
+                  tail: true,
                 ),
                 BubbleSpecialThree(
                   text: 'bubble normal without tail',
                   color: Colors.purple,
                   textStyle: TextStyle(color: Colors.white),
-                  tail: false,
+                  tail: true,
                   sent: true,
                   seen: true,
                   delivered: true,
@@ -88,6 +88,7 @@ class _ChatPageState extends State<ChatPage> {
                   text: 'bubble special one with tail',
                   isSender: false,
                   color: Color(0xFFE8E8EE),
+                  tail: true,
                 ),
                 DateChip(
                   color: Color.fromARGB(255, 246, 228, 250),
@@ -98,16 +99,17 @@ class _ChatPageState extends State<ChatPage> {
                   color: Colors.purple,
                   textStyle: TextStyle(color: Colors.white),
                   seen: true,
+                  tail: true,
                 ),
                 BubbleSpecialThree(
                   text: 'bubble special one without tail',
                   isSender: false,
-                  tail: false,
+                  tail: true,
                   color: Color(0xFFE8E8EE),
                 ),
                 BubbleSpecialThree(
                   text: 'bubble special one without tail',
-                  tail: false,
+                  tail: true,
                   color: Colors.purple,
                   textStyle: TextStyle(color: Colors.white),
                   sent: true,
@@ -116,6 +118,7 @@ class _ChatPageState extends State<ChatPage> {
                   text: 'bubble special tow with tail',
                   isSender: false,
                   color: Color(0xFFE8E8EE),
+                  tail: true,
                 ),
                 DateChip(
                   color: Color.fromARGB(255, 246, 228, 250),
@@ -131,19 +134,19 @@ class _ChatPageState extends State<ChatPage> {
                 BubbleSpecialThree(
                   text: 'bubble special tow without tail',
                   isSender: false,
-                  tail: false,
+                  tail: true,
                   color: Color(0xFFE8E8EE),
                 ),
                 BubbleSpecialThree(
                   text: 'bubble special tow without tail',
-                  tail: false,
+                  tail: true,
                   color: Colors.purple,
                   textStyle: TextStyle(color: Colors.white),
                   delivered: true,
                 ),
                 BubbleSpecialThree(
                   text: 'bubble special three without tail',
-                  tail: false,
+                  tail: true,
                   color: Colors.purple,
                   textStyle: TextStyle(color: Colors.white),
                 ),
@@ -156,7 +159,7 @@ class _ChatPageState extends State<ChatPage> {
                 BubbleSpecialThree(
                   text: "bubble special three without tail",
                   color: Color(0xFFE8E8EE),
-                  tail: false,
+                  tail: true,
                   isSender: false,
                 ),
                 BubbleSpecialThree(
