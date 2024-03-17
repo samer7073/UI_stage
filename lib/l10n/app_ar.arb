@@ -28,5 +28,22 @@
   "drawerSettings": "الإعدادات",
   "drawerLogout": "تسجيل الخروج",
   "language": "اللغة",
-  "ticket": "تذاكر"
+  "tickets": "تذاكر",
+  "activities": "أنشطة",
+  "deals": "صفقات",
+  "account": "حساب",
+  "confidentiality": "سرية",
+  "securityandpermissions": "الأمن والتصاريح",
+  "unavailability": "عدم التوفر",
+  "about": "عن",
+  "contentanddisplay": "المحتوى والعرض",
+  "notifications": "إشعارات",
+  "languages": "اللغات",
+  "display": "عرض",
+  "connection": "اتصال",
+  "disconnect": "قطع الاتصال",
+  "myaccount": "حسابي",
+  "choosealanguage": "اختر لغة",
+  "applicationlanguage": "لغة التطبيق",
+  "selectyourdefaultapplicationlanguage": "حدد لغة التطبيق الافتراضية الخاصة بك"
 }

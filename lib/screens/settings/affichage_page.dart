@@ -33,7 +33,7 @@ class _AffichageState extends State<Affichage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Affichage"),
+        title: Text(AppLocalizations.of(context).display),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),

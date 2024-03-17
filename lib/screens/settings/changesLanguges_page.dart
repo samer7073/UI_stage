@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../providers/langue_provider.dart';
 
@@ -50,7 +51,7 @@ class _ChangeLangugePageState extends State<ChangeLangugePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Choisir une langue"),
+        title: Text(AppLocalizations.of(context).choosealanguage),
         centerTitle: true,
       ),
       body: Column(

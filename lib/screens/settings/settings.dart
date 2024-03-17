@@ -8,8 +8,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/providers/langue_provider.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
+import 'package:flutter_application_stage_project/screens/login_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/aPropos_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/activties_settings_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/affichage_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/compte_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/confidentialite_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/indisponibilite_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/language.dart';
+import 'package:flutter_application_stage_project/screens/settings/notifications_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/securite_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -137,7 +145,9 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
 
             ),
             */
-            Container(padding: EdgeInsets.all(15), child: Text("Compte")),
+            Container(
+                padding: EdgeInsets.all(15),
+                child: Text(AppLocalizations.of(context).account)),
             Container(
               padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
               color: themeProvider.isDarkMode == true
@@ -149,137 +159,219 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Compte",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return ComptePage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).account,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.lock_person_rounded,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Confidentialité",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return ConfidentialitePage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.lock_person_rounded,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).confidentiality,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.local_police_rounded,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Sécurité et autorisations",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return SecuritePage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.local_police_rounded,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context)
+                                  .securityandpermissions,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.display_settings_outlined,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Indisponibilité",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return IndisponibilitePage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.display_settings_outlined,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).unavailability,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.info_outline_rounded,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "A-propos",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return ActiviteSettingsPage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_today_rounded,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).activities,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Apropos();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.info_outline_rounded,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).about,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
@@ -290,7 +382,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
             Container(
               padding: EdgeInsets.all(15),
               child: Text(
-                "Contenu et affichage",
+                AppLocalizations.of(context).contentanddisplay,
               ),
             ),
             Container(
@@ -304,29 +396,38 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.notifications_sharp,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Notifications",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return NotificationsPage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.notifications_sharp,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).notifications,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 30,
@@ -352,7 +453,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                               width: 10,
                             ),
                             Text(
-                              "Langues",
+                              AppLocalizations.of(context).languages,
                               style: Theme.of(context).textTheme.subtitle1,
                             )
                           ],
@@ -388,7 +489,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                               width: 10,
                             ),
                             Text(
-                              "Affichage",
+                              AppLocalizations.of(context).display,
                               style: Theme.of(context).textTheme.subtitle1,
                             )
                           ],
@@ -409,7 +510,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
             Container(
               padding: EdgeInsets.all(15),
               child: Text(
-                "Connexion",
+                AppLocalizations.of(context).connection,
               ),
             ),
             Container(
@@ -423,32 +524,41 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.logout_outlined,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Déconnexion",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          )
-                        ],
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.purple,
-                      )
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return LoginPage();
+                        },
+                      ));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.logout_outlined,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              AppLocalizations.of(context).disconnect,
+                              style: Theme.of(context).textTheme.subtitle1,
+                            )
+                          ],
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.purple,
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                 ],
               ),

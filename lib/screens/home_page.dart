@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
               Icons.calendar_today_rounded,
               //color: Colors.purple,
             ),
-            label: "Acticity" /*AppLocalizations.of(context).calls*/,
+            label: AppLocalizations.of(context).activities,
           ),
           BottomNavigationBarItem(
             // backgroundColor: Color.fromARGB(255, 246, 214, 252),
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
               Icons.airplane_ticket_rounded,
               // color: Colors.purple,
             ),
-            label: AppLocalizations.of(context).ticket,
+            label: AppLocalizations.of(context).tickets,
           ),
           BottomNavigationBarItem(
             //backgroundColor: Color.fromARGB(255, 246, 214, 252),
@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
               Icons.handshake_rounded,
               // color: Colors.purple,
             ),
-            label: "Deals" /*AppLocalizations.of(context).settings*/,
+            label: AppLocalizations.of(context).deals,
           ),
         ],
         // selectedLabelStyle: TextStyle(color: Colors.green),

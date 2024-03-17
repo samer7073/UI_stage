@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/langue_provider.dart';
 import 'changesLanguges_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Language extends StatefulWidget {
   const Language({super.key});
@@ -54,7 +55,9 @@ class _LanguageState extends State<Language> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Langues")),
+      appBar: AppBar(
+          centerTitle: true,
+          title: Text(AppLocalizations.of(context).language)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -63,7 +66,7 @@ class _LanguageState extends State<Language> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Langue de l'application",
+                    AppLocalizations.of(context).applicationlanguage,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                   Row(
@@ -84,15 +87,15 @@ class _LanguageState extends State<Language> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        ChangeLangugePage(),
+                    builder: (context) => ChangeLangugePage(),
                   ),
                 );
               }),
           SizedBox(
             height: 10,
           ),
-          Text("Sélectionne ta langue d'application par défaut"),
+          Text(AppLocalizations.of(context)
+              .selectyourdefaultapplicationlanguage),
         ]),
       ),
     );

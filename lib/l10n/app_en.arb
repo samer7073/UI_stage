@@ -115,10 +115,80 @@
   "@drawerHome": {
     "description": "language"
   },
-  "ticket": "Ticket",
+  "tickets": "Tickets",
   "@ticket": {
     "description": "ticket"
+  },
+  "activities": "Activities",
+  "@activities": {
+    "description": "activities"
+  },
+  "deals": "Deals",
+  "@deals": {
+    "description": "deals"
+  },
+  "account": "Account",
+  "@account": {
+    "description": "account"
+  },
+  "confidentiality": "Confidentiality",
+  "@confidentiality": {
+    "description": "confidentiality"
+  },
+  "securityandpermissions": "Security and permissions",
+  "@securityandpermissions": {
+    "description": "securityandpermissions"
+  },
+  "unavailability": "Unavailability",
+  "@unavailability": {
+    "description": "unavailability"
+  },
+  "about": "About",
+  "@about": {
+    "description": "about"
+  },
+  "contentanddisplay": "Content and display",
+  "@contentanddisplay": {
+    "description": "contentanddisplay"
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "notifications"
   }
-  
-  
+  ,
+  "languages": "Languages",
+  "@languages": {
+    "description": "languages"
+  }
+  ,
+  "display": "Display",
+  "@Display": {
+    "description": "Display"
+  }
+  ,
+  "connection": "Connection",
+  "@Connection": {
+    "description": "Connection"
+  }
+  ,
+  "disconnect": "Disconnect",
+  "@Disconnect": {
+    "description": "Disconnect"
+  },
+  "myaccount": "My account",
+  "@myaccount": {
+    "description": "My account"
+  },
+  "choosealanguage": "Choose a language",
+  "@choosealanguage": {
+    "description": "Choose a language"
+  },
+  "applicationlanguage": "Application language",
+  "@applicationlanguage": {
+    "description": "Application language"
+  },
+  "selectyourdefaultapplicationlanguage": "Select your default application language",
+  "@selectyourdefaultapplicationlanguage": {
+    "description": "Select your default application language"
+  }
 }
