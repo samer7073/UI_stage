@@ -21,6 +21,7 @@ import 'package:flutter_application_stage_project/screens/settings/securite_page
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
 
@@ -69,9 +70,22 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
   }
 
   String valueSelected = '';
+  Future<void>? _launched;
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final Uri toLaunch = Uri(
+        scheme: 'https',
+        host: 'www.comunikcrm.com',
+        path: 'confidentialite.html');
     log("la langage de systeme est  $valueSelected");
     log("la valuer dans langueProvider ${langueProvider.locale}");
     return Scaffold(
@@ -196,12 +210,8 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                     height: 30,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return ConfidentialitePage();
-                        },
-                      ));
+                    onTap: () async {
+                      _launched = _launchInBrowser(toLaunch);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
