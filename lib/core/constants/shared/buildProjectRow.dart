@@ -5,9 +5,10 @@ import 'package:flutter_application_stage_project/core/constants/shared/userAvat
 
 import 'package:percent_indicator/percent_indicator.dart';
 
-import '../../../screens/TeamFolderPage.dart';
+import '../../../screens/detail/TeamFolderPage.dart';
 
-Widget buildProjectRow(
+
+Widget buildCardVertical(
   String title,
   String petitetitle,
   List<String> filenames,

@@ -13,7 +13,7 @@ class Stage3Content extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         children: [
           const SizedBox(height: 20),
-          buildProjectRow(
+          buildCardVertical(
             "Project 1",
             "Description of Project 1",
             ["img1.jpeg"],

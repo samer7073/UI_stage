@@ -1,11 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/screens/TeamFolderPage.dart';
+
 import 'package:flutter_application_stage_project/screens/add_task.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+
+import 'bottomNavigationBar.dart';
+import 'detail/TeamFolderPage.dart';
 
 class DetailPage extends StatefulWidget {
   @override
@@ -20,9 +23,16 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar(Index: 1),
       appBar: AppBar(
         title: Text("Task Details"),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context); // Pop the current route
+          },
+        ),
       ),
 
       body: CustomScrollView(
@@ -150,9 +160,10 @@ class _DetailPageState extends State<DetailPage> {
       expandedHeight: 90,
       backgroundColor: Color.fromARGB(255, 240, 204, 247),
       leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: Icon(Icons.arrow_back_sharp, color: Colors.white),
-        iconSize: 30,
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {
+          Navigator.pop(context); // Pop the current route
+        },
       ),
       flexibleSpace: FlexibleSpaceBar(
         title: Column(

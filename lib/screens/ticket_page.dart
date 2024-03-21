@@ -4,9 +4,12 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/screens/TeamFolderPage.dart';
+
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
+import 'package:flutter_application_stage_project/screens/bottomNavigationBar.dart';
 import 'package:provider/provider.dart';
+
+import 'detail/TeamFolderPage.dart';
 
 class Ticket extends StatefulWidget {
   const Ticket({super.key});
@@ -28,6 +31,7 @@ class _TicketState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar(Index: 2),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton(
@@ -36,6 +40,12 @@ class _TicketState extends State<Ticket> {
       ),
       appBar: AppBar(
         title: Text('Tickets'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context); // Pop the current route
+          },
+        ),
         actions: [
           IconButton(
               onPressed: () {},

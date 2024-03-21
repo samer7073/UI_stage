@@ -422,10 +422,11 @@ class _AddDetailPageState extends State<AddDetailPage> {
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          }),
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {
+          Navigator.pop(context); // Pop the current route
+        },
+      ),
       title: Text(
         "Add Details",
         style: TextStyle(fontWeight: FontWeight.bold),

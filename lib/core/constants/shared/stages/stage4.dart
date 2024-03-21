@@ -15,7 +15,7 @@ class Stage4Content extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              buildProjectRow(
+              buildCardVertical(
                 "Shop integration with Facebook Api",
                 "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [
@@ -28,7 +28,7 @@ class Stage4Content extends StatelessWidget {
                 "28/02/2024",
                 context,
               ),
-              buildProjectRow(
+              buildCardVertical(
                 "Dessin Meeting ",
                 "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [
@@ -44,7 +44,7 @@ class Stage4Content extends StatelessWidget {
                 "28/02/2024",
                 context,
               ),
-              buildProjectRow(
+              buildCardVertical(
                 "Shop integration with Facebook Api",
                 "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [
@@ -57,7 +57,7 @@ class Stage4Content extends StatelessWidget {
                 "28/02/2024",
                 context,
               ),
-              buildProjectRow(
+              buildCardVertical(
                 "Dessin Meeting ",
                 "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [
@@ -73,7 +73,7 @@ class Stage4Content extends StatelessWidget {
                 "28/02/2024",
                 context,
               ),
-              buildProjectRow(
+              buildCardVertical(
                 "Job interview ",
                 "Use this guide to learn about concepts and common use cases for planning your commerce integration. For platform-partner-specific integrations, see Commerce Integration for Platform Partners.",
                 [

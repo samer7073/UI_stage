@@ -3,6 +3,7 @@
 import 'package:day_night_time_picker/lib/daynight_timepicker.dart';
 import 'package:day_night_time_picker/lib/state/time.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/screens/bottomNavigationBar.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
@@ -82,6 +83,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
     String selectedItem = options[0]["text"].toString();
 
     return Scaffold(
+      
       appBar: _appBar(context),
       body: Container(
           margin: EdgeInsets.all(8),
@@ -1025,6 +1027,12 @@ class _AddTaskPageState extends State<AddTaskPage> {
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       centerTitle: true,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {
+          Navigator.pop(context); // Pop the current route
+        },
+      ),
     );
   }
 }

@@ -46,7 +46,7 @@ class MyThemes {
     ),
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 210, 191, 243),
       titleTextStyle: TextStyle(color: Colors.black, fontSize: 22),
       iconTheme: IconThemeData(color: Colors.purple),
     ),
