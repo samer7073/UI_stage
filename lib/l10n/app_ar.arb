@@ -45,5 +45,7 @@
   "myaccount": "حسابي",
   "choosealanguage": "اختر لغة",
   "applicationlanguage": "لغة التطبيق",
-  "selectyourdefaultapplicationlanguage": "حدد لغة التطبيق الافتراضية الخاصة بك"
+  "selectyourdefaultapplicationlanguage": "حدد لغة التطبيق الافتراضية الخاصة بك",
+  "enterValidEmail": "أدخل بريدًا إلكترونيًا صالحًا",
+  "fieldRequired": "يتطلب حقلا"
 }

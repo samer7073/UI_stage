@@ -12,7 +12,7 @@ import 'package:flutter_application_stage_project/screens/login_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/aPropos_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/activties_settings_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/affichage_page.dart';
-import 'package:flutter_application_stage_project/screens/settings/compte_page.dart';
+import 'package:flutter_application_stage_project/screens/settings/compte/compte_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/confidentialite_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/indisponibilite_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/language.dart';
@@ -97,6 +97,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
         actions: [
           IconButton(
             onPressed: () {},
+            
             icon: Icon(
               Icons.notifications_none_sharp,
               size: 30,

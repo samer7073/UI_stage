@@ -36,6 +36,8 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     log('build ${themeProvider.isDarkMode}');
@@ -46,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _header(context),
-            _inputField(context),
+            Form(key: _formKey, child: _inputField(context)),
             _forgotPassword(context),
             // _signup(context),
           ],
@@ -71,7 +73,17 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextField(
+        TextFormField(
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Please enter your email';
+            }
+            if (!isValidEmail(value)) {
+              return AppLocalizations.of(context)!.enterValidEmail;
+            }
+            return null;
+          },
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
               hintText: AppLocalizations.of(context).email,
               border: OutlineInputBorder(
@@ -84,7 +96,12 @@ class _LoginPageState extends State<LoginPage> {
               )),
         ),
         const SizedBox(height: 10),
-        TextField(
+        TextFormField(
+          validator: (value) {
+            if (value!.isEmpty) {
+              return AppLocalizations.of(context)!.fieldRequired;
+            }
+          },
           decoration: InputDecoration(
             hintText: AppLocalizations.of(context).password,
             border: OutlineInputBorder(
@@ -105,11 +122,15 @@ class _LoginPageState extends State<LoginPage> {
           height: 50,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return HomePage();
-                },
-              ));
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                // Do something with the validated email
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return HomePage();
+                  },
+                ));
+              }
             },
             style: ElevatedButton.styleFrom(
               shape: StadiumBorder(),
@@ -143,5 +164,11 @@ class _LoginPageState extends State<LoginPage> {
         style: TextStyle(color: Colors.purple),
       ),
     );
+  }
+
+  bool isValidEmail(String email) {
+    // Regular expression for email validation
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
   }
 }

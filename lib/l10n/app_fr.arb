@@ -45,5 +45,7 @@
   "myaccount": "Mon compte",
   "choosealanguage": "Choisir une langue",
    "applicationlanguage": "Langue de l'application ",
-  "selectyourdefaultapplicationlanguage": "Sélectionne ta langue d'application par défaut"
+  "selectyourdefaultapplicationlanguage": "Sélectionne ta langue d'application par défaut",
+  "enterValidEmail": "Entrez une adresse email valide",
+  "fieldRequired": "Champs Requis"
 }

@@ -190,5 +190,13 @@
   "selectyourdefaultapplicationlanguage": "Select your default application language",
   "@selectyourdefaultapplicationlanguage": {
     "description": "Select your default application language"
+  },
+  "enterValidEmail": "enter Valid Email",
+  "@enterValidEmail": {
+    "description": "enterValidEmail"
+  },
+  "fieldRequired": "Field Required",
+  "@fieldRequired": {
+    "description": "fieldRequired"
   }
 }

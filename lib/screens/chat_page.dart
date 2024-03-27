@@ -21,9 +21,6 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     final now = new DateTime.now();
     return Scaffold(
-      appBar: AppBar(
-        title: Text("chat"),
-      ),
       body: Stack(
         children: [
           SingleChildScrollView(
