@@ -9,7 +9,9 @@ import 'package:flutter_application_stage_project/providers/theme_provider.dart'
 import 'package:flutter_application_stage_project/screens/bottomNavigationBar.dart';
 import 'package:provider/provider.dart';
 
+import 'CustomSearchDelegate.dart';
 import 'detail/TeamFolderPage.dart';
+import 'notifications_page.dart';
 
 class Ticket extends StatefulWidget {
   const Ticket({super.key});
@@ -27,6 +29,8 @@ class _TicketState extends State<Ticket> {
     themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     log("valeur isdark  dans initstate ${themeProvider.isDarkMode}");
   }
+
+  List<bool> selected = [true, false];
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +52,26 @@ class _TicketState extends State<Ticket> {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearchDelegate());
+              },
               icon: Icon(
                 Icons.search,
                 size: 30,
               )),
           IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.notifications_rounded,
-                size: 30,
-              ))
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return NotificationsPage();
+                },
+              ));
+            },
+            icon: Icon(
+              Icons.notifications_none_sharp,
+              size: 30,
+            ),
+          )
         ],
       ),
       body: SingleChildScrollView(
@@ -67,6 +80,40 @@ class _TicketState extends State<Ticket> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Center(
+                child: ToggleButtons(
+                    fillColor: Colors.white,
+                    selectedColor: Colors.purple,
+                    constraints: BoxConstraints(
+                        minHeight: 0.0, maxHeight: double.infinity),
+                    renderBorder: false,
+                    onPressed: (int index) {
+                      setState(() {
+                        for (int buttonIndex = 0;
+                            buttonIndex < selected.length;
+                            buttonIndex++) {
+                          if (buttonIndex == index) {
+                            selected[buttonIndex] = true;
+                          } else {
+                            selected[buttonIndex] = false;
+                          }
+                        }
+                      });
+                    },
+                    children: [
+                      Icon(
+                        Icons.list,
+                        size: 35,
+                        // color: Colors.purple[200],
+                      ),
+                      Icon(
+                        Icons.view_kanban_outlined,
+                        size: 35,
+                        //color: Colors.purple[200],
+                      )
+                    ],
+                    isSelected: selected),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
@@ -631,3 +678,4 @@ class _TicketState extends State<Ticket> {
     );
   }
 }
+

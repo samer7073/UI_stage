@@ -7,8 +7,10 @@ import 'package:flutter_application_stage_project/screens/add_task.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+import 'CustomSearchDelegate.dart';
 import 'bottomNavigationBar.dart';
 import 'detail/TeamFolderPage.dart';
+import 'notifications_page.dart';
 
 class DetailPage extends StatefulWidget {
   @override
@@ -25,6 +27,29 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       bottomNavigationBar: bottomNavigationBar(Index: 1),
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearchDelegate());
+              },
+              icon: Icon(
+                Icons.search,
+                size: 30,
+              )),
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return NotificationsPage();
+                },
+              ));
+            },
+            icon: Icon(
+              Icons.notifications_none_sharp,
+              size: 30,
+            ),
+          )
+        ],
         title: Text("Task Details"),
         centerTitle: true,
         leading: IconButton(

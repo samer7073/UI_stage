@@ -12,6 +12,9 @@ import 'package:flutter_application_stage_project/screens/bottomNavigationBar.da
 
 import 'package:provider/provider.dart';
 
+import '../CustomSearchDelegate.dart';
+import '../notifications_page.dart';
+
 class KanbanPage1 extends StatefulWidget {
   @override
   _KanbanPage1State createState() => _KanbanPage1State();
@@ -62,6 +65,29 @@ class _KanbanPage1State extends State<KanbanPage1> {
     return Scaffold(
       bottomNavigationBar: bottomNavigationBar(Index: 3),
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearchDelegate());
+              },
+              icon: Icon(
+                Icons.search,
+                size: 30,
+              )),
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return NotificationsPage();
+                },
+              ));
+            },
+            icon: Icon(
+              Icons.notifications_none_sharp,
+              size: 30,
+            ),
+          )
+        ],
         centerTitle: true,
         title: Text("Sphere Board"),
         leading: IconButton(

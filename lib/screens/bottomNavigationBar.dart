@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/settings.dart';
@@ -119,14 +121,14 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
         BottomNavigationBarItem(
           // backgroundColor: Color.fromARGB(255, 246, 214, 252),
           icon: Icon(
-            Icons.home_outlined,
+            Icons.pie_chart_outline_rounded,
             //color: selectedIndex == 0 ? Colors.purple : Colors.black,
           ),
           activeIcon: Icon(
-            Icons.home,
+            Icons.pie_chart,
             //color: Colors.purple,
           ),
-          label: AppLocalizations.of(context).homePage,
+          label: "Overview",
 
           // TextStyle for unselected
           // TextStyle(color: selectedIndex == 0 ? Colors.purple : Colors.black),

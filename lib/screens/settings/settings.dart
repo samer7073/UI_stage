@@ -24,6 +24,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
+import 'changesLanguges_page.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
   void updateValueSelected(Locale locale) {
     setState(() {
       valueSelected = locale.languageCode == 'fr'
-          ? "Francais"
+          ? "Français"
           : locale.languageCode == "en"
               ? "English"
               : "العربية";
@@ -80,6 +81,8 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
     }
   }
 
+  bool notification = true;
+
   @override
   Widget build(BuildContext context) {
     final Uri toLaunch = Uri(
@@ -96,8 +99,13 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
-            
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return NotificationsPage();
+                },
+              ));
+            },
             icon: Icon(
               Icons.notifications_none_sharp,
               size: 30,
@@ -203,6 +211,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -235,6 +244,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -272,6 +282,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -308,6 +319,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -329,14 +341,14 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Row(
                           children: [
                             Icon(
-                              Icons.calendar_today_rounded,
+                              Icons.timeline,
                               color: Colors.grey,
                             ),
                             SizedBox(
                               width: 10,
                             ),
                             Text(
-                              AppLocalizations.of(context).activities,
+                              "Timeline",
                               style: Theme.of(context).textTheme.subtitle1,
                             )
                           ],
@@ -344,6 +356,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -380,6 +393,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),
@@ -433,10 +447,15 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                             )
                           ],
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.purple,
-                        )
+                        CupertinoSwitch(
+                          activeColor: Colors.purple,
+                          value: notification,
+                          onChanged: (value) {
+                            setState(() {
+                              notification = value;
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -447,7 +466,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Language();
+                          return ChangeLangugePage();
                         },
                       ));
                     },
@@ -469,9 +488,18 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                             )
                           ],
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.purple,
+                        Row(
+                          children: [
+                            Text(valueSelected),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.purple,
+                              size: 15,
+                            ),
+                          ],
                         )
                       ],
                     ),
@@ -505,10 +533,15 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                             )
                           ],
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.purple,
-                        )
+                        CupertinoSwitch(
+                          activeColor: Colors.purple,
+                          value: themeProvider.isDarkMode,
+                          onChanged: (value) {
+                            setState(() {
+                              themeProvider.toggleTheme();
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -564,6 +597,7 @@ class _SettingsState extends State<Settings> with WidgetsBindingObserver {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.purple,
+                          size: 15,
                         )
                       ],
                     ),

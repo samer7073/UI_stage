@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/screens/disscussions_page.dart';
 
 import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
@@ -155,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return VerfierPassword();
+            return DisscussionsPage();
           },
         ));
       },

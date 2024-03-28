@@ -37,12 +37,14 @@ class _VerfierPasswordState extends State<VerfierPassword> {
             ),
             Text(
               "le code de vérification",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headline2,
             ),
             SizedBox(
               height: 10,
             ),
-            Text("nous avons envoyé la vérification du code à votre email"),
+            Text(
+              "nous avons envoyé la vérification du code à votre email",
+            ),
             SizedBox(
               height: 40,
             ),
@@ -56,44 +58,10 @@ class _VerfierPasswordState extends State<VerfierPassword> {
                 print("OTP CODE EST : $value");
               },
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                /*
-                MyButton(onTap: confirmUser, text: "Confirmer"),
-                SizedBox(width: 50,),
-                MyButton(onTap: confirmUser, text: "Annuler"),
-                */
-
-                Container(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return HomePage();
-                        },
-                      ));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 50),
-                      shape: const StadiumBorder(),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 16),
-                      backgroundColor: Color.fromARGB(255, 246, 228, 250),
-                    ),
-                    child: Text(
-                      "Annuler",
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Color.fromARGB(255, 145, 33, 250),
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30,
-                ),
                 Container(
                   child: ElevatedButton(
                     onPressed: () {
@@ -107,7 +75,7 @@ class _VerfierPasswordState extends State<VerfierPassword> {
                       shape: const StadiumBorder(),
                       minimumSize: Size(150, 50),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 16),
+                          horizontal: 130, vertical: 16),
                       backgroundColor: Color.fromARGB(255, 246, 228, 250),
                     ),
                     child: const Text(
