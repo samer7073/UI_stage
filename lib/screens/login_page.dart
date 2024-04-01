@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return DisscussionsPage();
+            return VerfierPassword();
           },
         ));
       },

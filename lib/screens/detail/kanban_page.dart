@@ -63,6 +63,10 @@ class _KanbanPage1State extends State<KanbanPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
       bottomNavigationBar: bottomNavigationBar(Index: 3),
       appBar: AppBar(
         actions: [

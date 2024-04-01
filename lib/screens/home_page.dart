@@ -157,12 +157,10 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            containerDashbored(" Tickets", "15", "Résolu", "7", "Dépassé", "8"),
+            containerDashbored(" Deals", "40", "gagner", "10", "Perdu", "30"),
             containerDashbored(
-                "Totale Tickets", "15", "Résolu", "7", "Dépassé", "8"),
-            containerDashbored(
-                "Totale Deals", "40", "Résolu", "10", "Perdu", "30"),
-            containerDashbored(
-                "Totale Activités", "60", "Résolu", "10", "Dépassé", "50"),
+                " Activités", "60", "done", "10", "Dépassé", "50"),
           ],
         ),
       ),

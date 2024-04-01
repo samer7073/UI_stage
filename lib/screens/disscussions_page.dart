@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/screens/chat_page.dart';
 
 import 'CustomSearchDelegate.dart';
+import 'bottomNavigationBar.dart';
 
 class DisscussionsPage extends StatefulWidget {
   const DisscussionsPage({super.key});
@@ -16,6 +17,7 @@ class _DisscussionsPageState extends State<DisscussionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar(Index: 4),
       appBar: AppBar(
         title: Text("Discussion"),
         actions: [

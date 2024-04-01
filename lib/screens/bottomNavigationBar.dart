@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/screens/disscussions_page.dart';
 import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/settings.dart';
 import 'package:flutter_application_stage_project/screens/ticket_page.dart';
@@ -77,11 +78,20 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
     ));
   }
 
+  void goToDisc() {
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return DisscussionsPage();
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     int selectedIndex = widget.Index;
     return BottomNavigationBar(
       currentIndex: selectedIndex,
+      iconSize: 20,
 
       //unselectedLabelStyle: TextStyle(color: Colors.green),
       //showUnselectedLabels: true,
@@ -112,6 +122,8 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
             selectedIndex = 0;
           } else if (index == 0) {
             goToHomePage();
+          } else if (index == 4) {
+            goToDisc();
           }
         });
         // selectedIndex = 0;
@@ -168,6 +180,18 @@ class _bottomNavigationBarState extends State<bottomNavigationBar> {
             // color: Colors.purple,
           ),
           label: AppLocalizations.of(context).deals,
+        ),
+        BottomNavigationBarItem(
+          //backgroundColor: Color.fromARGB(255, 246, 214, 252),
+          icon: Icon(
+            Icons.chat_outlined,
+            // color: selectedIndex == 3 ? Colors.purple : Colors.black,
+          ),
+          activeIcon: Icon(
+            Icons.chat_bubble_rounded,
+            // color: Colors.purple,
+          ),
+          label: "Discussion",
         ),
       ],
       // selectedLabelStyle: TextStyle(color: Colors.green),

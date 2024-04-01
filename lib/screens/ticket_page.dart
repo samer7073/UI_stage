@@ -36,11 +36,13 @@ class _TicketState extends State<Ticket> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: bottomNavigationBar(Index: 2),
+      /*
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
+          */
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.airplane_ticket_sharp),
+        child: Icon(Icons.add),
       ),
       appBar: AppBar(
         title: Text('Tickets'),
@@ -678,4 +680,3 @@ class _TicketState extends State<Ticket> {
     );
   }
 }
-

@@ -15,8 +15,13 @@ class _IntroPage1State extends State<IntroPage1> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Image.asset(
+        'assets/undraw_sign_up_ln1s.png',
+      ),
+      /*
       Lottie.network(
           "https://lottie.host/3760c715-3788-43ff-bbd1-32b6dd1bb796/9H8xECNCPh.json"),
+          */
       Text("Page 1")
     ]));
   }
