@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_stage_project/screens/disscussions_page.dart';
 import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/settings.dart';
-import 'package:flutter_application_stage_project/screens/ticket_page.dart';
+import 'package:flutter_application_stage_project/screens/ticket/ticket_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Profile.dart';

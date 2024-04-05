@@ -13,7 +13,7 @@ import 'package:flutter_application_stage_project/screens/bottomNavigationBar.da
 import 'package:provider/provider.dart';
 
 import '../CustomSearchDelegate.dart';
-import '../notifications_page.dart';
+import '../notifications/notifications_page.dart';
 
 class KanbanPage1 extends StatefulWidget {
   @override

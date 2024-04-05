@@ -53,6 +53,8 @@ dependencies:
   url_launcher: ^6.1.14
   timelines: ^0.1.0
   image_picker: ^1.0.7
+  appflowy_board: ^0.1.1
+  drag_and_drop_lists: ^0.3.3
  
 
   

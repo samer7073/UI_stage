@@ -11,6 +11,9 @@ import 'package:flutter_application_stage_project/screens/verifier_password.dart
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'appflowy_board.dart';
+import 'dragAndDropKanban.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -156,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return VerfierPassword();
+            return DragAndDropKanban();
           },
         ));
       },

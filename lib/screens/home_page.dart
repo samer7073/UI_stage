@@ -16,7 +16,7 @@ import 'package:flutter_application_stage_project/components/my_drawer.dart';
 
 import 'package:flutter_application_stage_project/providers/theme_provider.dart';
 import 'package:flutter_application_stage_project/screens/settings/settings.dart';
-import 'package:flutter_application_stage_project/screens/ticket_page.dart';
+import 'package:flutter_application_stage_project/screens/ticket/ticket_page.dart';
 
 import 'bottomNavigationBar.dart';
 import 'detail/kanban_page.dart';

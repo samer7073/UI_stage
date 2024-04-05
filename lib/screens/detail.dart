@@ -10,7 +10,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'CustomSearchDelegate.dart';
 import 'bottomNavigationBar.dart';
 import 'detail/TeamFolderPage.dart';
-import 'notifications_page.dart';
+import 'notifications/notifications_page.dart';
 
 class DetailPage extends StatefulWidget {
   @override
