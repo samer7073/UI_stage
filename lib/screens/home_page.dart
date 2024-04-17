@@ -3,8 +3,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stage_project/screens/add_task.dart';
-import 'package:flutter_application_stage_project/screens/detail.dart';
+import 'package:flutter_application_stage_project/screens/Activity_Projects/display_Activity_Page.dart';
+
 import 'package:flutter_application_stage_project/screens/settings/notifications_page.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

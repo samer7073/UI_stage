@@ -185,6 +185,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.3+1"
+  fl_chart:
+    dependency: "direct main"
+    description:
+      name: fl_chart
+      sha256: "5a74434cc83bf64346efb562f1a06eefaf1bcb530dc3d96a104f631a1eff8d79"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.65.0"
+  floating_action_bubble:
+    dependency: "direct main"
+    description:
+      name: floating_action_bubble
+      sha256: "760fd392eaf01e5bccf58889ceaf98d3e90f51066a7efd426d5db5888528931a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -570,6 +586,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  syncfusion_flutter_charts:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_charts
+      sha256: "02c11d461f4177c60a4cdd501594bb6678f46bee8754f678c7e41c2109f935e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "24.1.45+2"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      sha256: "7666506885ebc8f62bb928ad4588a73e20caaff2b2cf2b2b56f67d98f4113525"
+      url: "https://pub.dev"
+    source: hosted
+    version: "24.2.9"
   table_calendar:
     dependency: "direct main"
     description:

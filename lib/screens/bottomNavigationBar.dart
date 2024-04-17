@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stage_project/screens/Activity_Projects/display_Activity_Page.dart';
 import 'package:flutter_application_stage_project/screens/disscussions_page.dart';
 import 'package:flutter_application_stage_project/screens/home_page.dart';
 import 'package:flutter_application_stage_project/screens/settings/settings.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'Profile.dart';
 import 'chat_page.dart';
-import 'detail.dart';
+
 import 'detail/kanban_page.dart';
 
 class bottomNavigationBar extends StatefulWidget {
